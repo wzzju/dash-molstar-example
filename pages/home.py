@@ -1,9 +1,15 @@
 import json
 
+import dash
 import dash_bootstrap_components as dbc
 import dash_molstar
 from dash import html
 from dash_molstar.utils import molstar_helper
+
+dash.register_page(__name__,
+    path='/',
+    title='SARS-CoV-2 Overview',
+    name='SARS-CoV-2 Overview')
 
 with open('pages/text.json') as f:
     data = json.load(f)

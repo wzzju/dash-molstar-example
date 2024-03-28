@@ -1,8 +1,14 @@
 import json
+import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 
 from .home import get_sidebar
+
+dash.register_page(__name__,
+    path='/about',
+    title='About',
+    name='About')
 
 with open('pages/text.json') as f:
     about = json.load(f)['about']
@@ -22,7 +28,7 @@ def layout():
             ], className='banner-container')
         ]),
     ])
-    
+
     layout = [
         get_sidebar(__name__),
         html.Div([

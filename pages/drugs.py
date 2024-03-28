@@ -8,6 +8,11 @@ from dash_molstar.utils import molstar_helper
 
 from .home import get_sidebar
 
+dash.register_page(__name__,
+    path='/drugs',
+    title='Therapeutics',
+    name='Therapeutics')
+
 with open('pages/text.json') as f:
     data = json.load(f)
     Principles = data['Principles']

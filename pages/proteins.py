@@ -7,6 +7,11 @@ from dash_molstar.utils import molstar_helper
 
 from .home import get_sidebar
 
+dash.register_page(__name__,
+    path='/proteins',
+    title='Virus Composition',
+    name='Virus Composition')
+
 with open('pages/coords.json') as f:
     image_map = html.MapEl([html.Area(shape="poly", href='#', id=k, title=k, coords=v) for k, v in json.load(f).items()], name='image-map', id='image-map')
 
@@ -96,7 +101,7 @@ clientside_callback(
 
             const widthScale = currentWidth / 1200;
             const heightScale = currentHeight / 909;
-            
+
             const originalAreas = originalMapElement.getElementsByTagName('area');
             const areas = mapElement.getElementsByTagName('area');
             for (let i = 0; i < areas.length; i++) {

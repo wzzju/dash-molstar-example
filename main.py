@@ -1,7 +1,6 @@
 import dash
 from dash import Dash
 from flask import Flask
-from pages import drugs, home, proteins, about
 
 index_str = """<!DOCTYPE html>
 <html>
@@ -53,26 +52,6 @@ dash_app = Dash(__name__,
             'rel': 'stylesheet'
         }]
     )
-dash.register_page('pages.homepage',
-    path='/',
-    title='SARS-CoV-2 Overview',
-    name='SARS-CoV-2 Overview',
-    layout=home.layout)
-dash.register_page('pages.proteins',
-    path='/proteins',
-    title='Virus Composition',
-    name='Virus Composition',
-    layout=proteins.layout)
-dash.register_page('pages.drugs',
-    path='/drugs',
-    title='Therapeutics',
-    name='Therapeutics',
-    layout=drugs.layout)
-dash.register_page('pages.about',
-    path='/about',
-    title='About',
-    name='About',
-    layout=about.layout)
 
 with server.app_context():
     dash_app.layout = dash.page_container
