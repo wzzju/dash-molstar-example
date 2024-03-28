@@ -31,9 +31,9 @@ index_str = """<!DOCTYPE html>
     </body>
 </html>"""
 
-app = Flask(__name__, instance_relative_config=True)
+server = Flask(__name__, instance_relative_config=True)
 dash_app = Dash(__name__,
-        server=app,
+        server=server,
         use_pages=True,
         assets_folder='static',
         index_string=index_str,
@@ -74,8 +74,8 @@ dash.register_page('pages.about',
     name='About',
     layout=about.layout)
 
-with app.app_context():
+with server.app_context():
     dash_app.layout = dash.page_container
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    server.run(debug=True)
